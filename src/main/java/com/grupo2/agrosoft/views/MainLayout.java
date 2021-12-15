@@ -1,14 +1,16 @@
 package com.grupo2.agrosoft.views;
 
-import com.grupo2.agrosoft.views.about.AboutView;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.grupo2.agrosoft.views.inicio.InicioView;
 import com.grupo2.agrosoft.views.listaproveedores.ProveedoresView;
+import com.grupo2.agrosoft.views.nuevasemilla.NuevaSemillaView;
 import com.grupo2.agrosoft.views.nuevasiembra.NuevaSiembraView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.button.ButtonVariant;
-import com.vaadin.flow.component.charts.model.Background;
 import com.vaadin.flow.component.html.Footer;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H2;
@@ -21,8 +23,6 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.server.PWA;
 import com.vaadin.flow.theme.Theme;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * The main view is a top-level placeholder for other views.
@@ -114,9 +114,9 @@ public class MainLayout extends AppLayout {
 
     private List<RouterLink> createLinks() {
         MenuItemInfo[] menuItems = new MenuItemInfo[]{ //
-                new MenuItemInfo("About", "la la-file", AboutView.class), //
                 new MenuItemInfo("Inicio", "la la-file", InicioView.class), //
                 new MenuItemInfo("Proveedores", "la la-file", ProveedoresView.class), //
+                new MenuItemInfo("Nueva Semilla", "la la-file", NuevaSemillaView.class), //
                 new MenuItemInfo("Nueva Siembra", "la la-file", NuevaSiembraView.class), //
 
         };

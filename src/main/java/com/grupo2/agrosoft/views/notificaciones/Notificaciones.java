@@ -10,7 +10,7 @@ public class Notificaciones {
 
     public Notificaciones(String mensaje, int codigo, int pos) {
         Notification notification = new Notification();
-        notification.setDuration(3000);// Duracion
+        notification.setDuration(4000);// Duracion
         Icon icono = null;
         /*
          * 1=error
@@ -56,8 +56,7 @@ public class Notificaciones {
         Span label = new Span(mensaje);
         label.getStyle().set("margin", "0px");
         label.getStyle().set("padding", "0px");
-
-        notification.add(icono, label);
+        notification.add(icono,label);
 
         notification.open();
     }

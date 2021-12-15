@@ -1,6 +1,5 @@
 package com.grupo2.agrosoft.views.inicio;
 
-import com.grupo2.agrosoft.data.entity.ImageCard;
 import com.grupo2.agrosoft.views.MainLayout;
 import com.grupo2.agrosoft.views.listaempleados.ListaEmpleadosView;
 import com.grupo2.agrosoft.views.listaproveedores.ProveedoresView;
@@ -11,10 +10,11 @@ import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouteAlias;
 
 @PageTitle("Inicio")
 @Route(value = "inicio", layout = MainLayout.class)
-//@RouteAlias(value = "", layout = MainLayout.class)
+@RouteAlias(value = "", layout = MainLayout.class)
 public class InicioView extends Div {
 
     public InicioView() {

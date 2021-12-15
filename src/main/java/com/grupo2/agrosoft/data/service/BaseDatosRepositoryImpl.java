@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.grupo2.agrosoft.data.entity.Proveedor;
+import com.grupo2.agrosoft.data.entity.Semilla;
 import com.grupo2.agrosoft.data.entity.Siembra;
 
 public class BaseDatosRepositoryImpl implements BaseDatosRepository {
@@ -68,6 +69,55 @@ public class BaseDatosRepositoryImpl implements BaseDatosRepository {
     }
 
     @Override
+    public String agregarSemilla(Semilla semilla) {
+        try{
+            Call<ResponseBody> call = client.getBaseDatosRestService().agregarSemilla(semilla);
+            Response<ResponseBody> respuesta = call.execute();
+            if(respuesta.isSuccessful()){
+                return respuesta.message();
+            }else{
+                return null;
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Semilla> consultarSemillas() {
+        try{
+            Call<RespuestaSemillas> call = client.getBaseDatosRestService().consultarSemillas();
+            Response<RespuestaSemillas> respuesta = call.execute();
+            if(respuesta.isSuccessful()){
+                return respuesta.body().getItems();
+            }else{
+                return null;
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public String eliminarSemilla(Integer id) {
+        try{
+            Call<ResponseBody> call = client.getBaseDatosRestService().eliminarSemilla(id);
+            Response<ResponseBody> respuesta = call.execute();
+            if(respuesta.isSuccessful()){
+                return respuesta.message();
+            }else{
+                return null;
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    @Override
     public String agregarSiembra(Siembra siembra) {
         try{
             Call<ResponseBody> call = client.getBaseDatosRestService().agregarSiembra(siembra);
@@ -82,5 +132,39 @@ public class BaseDatosRepositoryImpl implements BaseDatosRepository {
         }
         return null;
     }
+
+    @Override
+    public List<Siembra> consultarSiembras() {
+        try{
+            Call<RespuestaSiembras> call = client.getBaseDatosRestService().consultarSiembras();
+            Response<RespuestaSiembras> respuesta = call.execute();
+            if(respuesta.isSuccessful()){
+                return respuesta.body().getItems();
+            }else{
+                return null;
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public String eliminarSiembra(Integer id) {
+        try{
+            Call<ResponseBody> call = client.getBaseDatosRestService().eliminarSiembra(id);
+            Response<ResponseBody> respuesta = call.execute();
+            if(respuesta.isSuccessful()){
+                return respuesta.message();
+            }else{
+                return null;
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
 
 }
