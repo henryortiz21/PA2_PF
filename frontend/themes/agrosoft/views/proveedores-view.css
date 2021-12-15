@@ -1,0 +1,52 @@
+.proveedores-view {
+    display: block;
+    height: 100%;
+  }
+  
+  .proveedores-view vaadin-grid {
+    height: 100%;
+    line-height: var(--lumo-line-height-m);
+  }
+  
+
+  .proveedores-view img {
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px;
+    height: 100px;
+    min-width: 50px;
+    max-width: 200px;
+    width: 100%;
+  }
+
+  .proveedores-view .txtInfo {
+    border: transparent;
+    background: none;
+    color:white;
+    font-size: 15sp;
+    
+  }
+
+  .proveedores-view .vl {
+    height:fit-content;
+    display:inline-block;
+    padding-top:10px;
+    text-align: center;
+  }
+
+  
+  .proveedores-view .name {
+    font-size: var(--lumo-font-size-s);
+    font-weight: bold;
+    margin-right: var(--lumo-space-s);
+  }
+  
+  .proveedores-view .buttondel {
+    display: inline-block;
+    background-color: #f44336;
+    border: none;
+    color: white;
+    text-align: center;
+    transition: all 0.5s;
+    vertical-align:middle;
+  }

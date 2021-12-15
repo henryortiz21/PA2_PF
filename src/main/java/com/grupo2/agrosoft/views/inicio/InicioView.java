@@ -20,18 +20,18 @@ public class InicioView extends Div {
     public InicioView() {
         addClassNames("inicio-view", "flex", "h-full");
 
-        add(createCard(new ImageCard("Semillas", "images/semillas.png"),ProveedoresView.class));
-        add(createCard(new ImageCard("Siembra", "images/siembra.png"),ProveedoresView.class));
-        add(createCard(new ImageCard("Manteminiento", "images/mantenimiento.png"),ProveedoresView.class));
-        add(createCard(new ImageCard("Productos", "images/img3.png"),ListaEmpleadosView.class));
+        add(createCard("Semillas", "images/semillas.png",ProveedoresView.class));
+        add(createCard("Siembra", "images/siembra.png",ProveedoresView.class));
+        add(createCard("Manteminiento", "images/mantenimiento.png",ProveedoresView.class));
+        add(createCard("Productos", "images/img3.png",ListaEmpleadosView.class));
 
     }
 
-    public Component createCard(ImageCard imagecard, Class nav) {
+    public Component createCard(String titulo, String imagen, Class nav) {
         Div con = new Div();
         con.addClassName("card");
-        Image img = new Image(imagecard.getImagen(), "");
-        Span badge = new Span(imagecard.getTitulo());
+        Image img = new Image(imagen, "");
+        Span badge = new Span(titulo);
         badge.setEnabled(false);
         con.add(img, badge);
         con.addClickListener(e->{

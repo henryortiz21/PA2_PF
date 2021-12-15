@@ -4,10 +4,11 @@ public class Siembra {
     private Integer id;
     private String descripcion;
     private String ubicacion;
-    private String dimensiones;
+    private Integer dimensiones;// En mt2
     private String tipo_siembra;
     private String fecha_siembra;
-    private String fecha_cosecha;
+    private String fecha_cosecha1;
+    private String cosecha_aproximada;
 
     public Integer getId() {
         return id;
@@ -33,11 +34,11 @@ public class Siembra {
         this.ubicacion = ubicacion;
     }
 
-    public String getDimensiones() {
+    public Integer getDimensiones() {
         return dimensiones;
     }
 
-    public void setDimensiones(String dimensiones) {
+    public void setDimensiones(Integer dimensiones) {
         this.dimensiones = dimensiones;
     }
 
@@ -57,21 +58,33 @@ public class Siembra {
         this.fecha_siembra = fecha_siembra;
     }
 
-    public String getFecha_cosecha() {
-        return fecha_cosecha;
+    public String getFecha_cosecha1() {
+        return fecha_cosecha1;
     }
 
-    public void setFecha_cosecha(String fecha_cosecha) {
-        this.fecha_cosecha = fecha_cosecha;
+    public void setFecha_cosecha1(String fecha_cosecha1) {
+        this.fecha_cosecha1 = fecha_cosecha1;
     }
 
-    public Siembra(String descripcion, String ubicacion, String dimensiones, String tipo_siembra, String fecha_siembra,
-            String fecha_cosecha) {
+    public String getCosecha_aproximada() {
+        return cosecha_aproximada;
+    }
+
+    public void setCosecha_aproximada(String cosecha_aproximada) {
+        this.cosecha_aproximada = cosecha_aproximada;
+    }
+
+    public Siembra(String descripcion, String ubicacion, Integer dimensiones, String tipo_siembra, String fecha_siembra,
+            String fecha_cosecha1, String cosecha_aproximada) {
         this.descripcion = descripcion;
         this.ubicacion = ubicacion;
         this.dimensiones = dimensiones;
         this.tipo_siembra = tipo_siembra;
         this.fecha_siembra = fecha_siembra;
-        this.fecha_cosecha = fecha_cosecha;
+        this.fecha_cosecha1 = fecha_cosecha1;
+        this.cosecha_aproximada = cosecha_aproximada;
+    }
+
+    public Siembra() {
     }
 }
