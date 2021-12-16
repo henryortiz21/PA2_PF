@@ -2,15 +2,19 @@ package com.grupo2.agrosoft.views.nuevasiembra;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.grupo2.agrosoft.controller.BaseDatosInteractor;
 import com.grupo2.agrosoft.controller.BaseDatosInteractorImpl;
+import com.grupo2.agrosoft.data.entity.Semilla;
 import com.grupo2.agrosoft.data.entity.Siembra;
 import com.grupo2.agrosoft.views.MainLayout;
 import com.grupo2.agrosoft.views.notificaciones.Notificaciones;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.html.Div;
@@ -24,17 +28,18 @@ import com.vaadin.flow.router.Route;
 @PageTitle("Nueva siembra")
 @Route(value = "nuevasiembra", layout = MainLayout.class)
 public class NuevaSiembraView extends Div {
-
+    private Integer produccion_mts=0,dias_cosecha=0;
     private BaseDatosInteractor interactor;
 
-    private TextField descripcion= new TextField("Descripción");
-    private TextArea ubicacion= new TextArea("Ubicacion");
-    private TextField dimensiones= new TextField("Dimensiones");
-    private TextField tipo_siembra= new TextField("Tipo siembra");
-    private DatePicker f_siembra=new DatePicker("Fecha de siembra",LocalDate.now());
-    private TextField f_cosecha= new TextField("Fecha proxima de cosecha");
-    private TextField cosecha_aproximada= new TextField("Cosecha aproximada");
+    private TextField descripcion = new TextField("Descripción");
+    private TextArea ubicacion = new TextArea("Ubicacion");
+    private TextField dimensiones = new TextField("Dimensiones");
+    private ComboBox<String> tipo_siembra = new ComboBox<>("Tipo siembra");
+    private DatePicker f_siembra = new DatePicker("Fecha de siembra", LocalDate.now());
+    private TextField f_cosecha = new TextField("Fecha proxima de cosecha");
+    private TextField cosecha_aproximada = new TextField("Cosecha aproximada");
     private DateTimeFormatter dtformat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private List<Semilla> list_Semilla = new ArrayList<>();
     private Button bGuardar = new Button("Guardar");
     private Button bCancelar = new Button("Cancelar");
 
@@ -51,7 +56,7 @@ public class NuevaSiembraView extends Div {
                     descripcion.getValue(),
                     ubicacion.getValue(),
                     Integer.getInteger(dimensiones.getValue()),
-                    tipo_siembra.getValue(),//Combobox
+                    "TIPO DE SIEMBRA",
                     fecha_siembra,
                     f_cosecha.getValue(),
                     "200");
@@ -62,17 +67,22 @@ public class NuevaSiembraView extends Div {
                 new Notificaciones("No se pudo almacenar la informacion", 1, 7);
         });
 
-        f_siembra.addValueChangeListener(e->{
-            LocalDate f= e.getValue();
-            f=f.plusDays(10);
-            String f_proxima = f.format(dtformat);
-            f_cosecha.setValue(f_proxima);
+        f_siembra.addValueChangeListener(e -> {
+            calcular();
         });
+        tipo_siembra.addValueChangeListener(e->{
+            String va=tipo_siembra.getValue().toString().substring(0,tipo_siembra.getValue().toString().indexOf("  "));
+            produccion_mts=list_Semilla.get((Integer.valueOf(va)-1)).getProduccio_por_metro2();
+            dias_cosecha=list_Semilla.get((Integer.valueOf(va)-1)).getTiempo_cosecha();
+            calcular();
+        });
+        obtenerSemillas();
     }
+
     private Component createTitle() {
         return new H3("Nueva siembra");
     }
-    
+
     private Component createFormLayout() {
         FormLayout formLayout = new FormLayout();
         f_cosecha.setReadOnly(true);
@@ -90,4 +100,29 @@ public class NuevaSiembraView extends Div {
         return buttonLayout;
     }
 
+    private void obtenerSemillas() {
+        list_Semilla = interactor.consultarSemillas();
+        if (list_Semilla != null)
+            new Notificaciones("Datos alquiridos", 2, 7);
+        else{
+            list_Semilla= new ArrayList<>();
+            new Notificaciones("No se encontraron datos", 1, 7);
+        }
+        List<String> lista=new ArrayList<>();
+        int a=1;
+        for(Semilla nombre:list_Semilla){
+            lista.add(a+"  "+nombre.getNombre());
+            a++;
+        }
+            tipo_siembra.setItems(lista);
+    }
+
+    private void calcular(){
+        LocalDate f = f_siembra.getValue();
+        f = f.plusDays(dias_cosecha);
+        String f_proxima = f.format(dtformat);
+        f_cosecha.setValue(f_proxima);
+        Integer dim= dimensiones.getValue().isBlank()?0:Integer.parseInt(dimensiones.getValue());
+        cosecha_aproximada.setValue(""+(dim*produccion_mts)+" libras");
+    }
 }

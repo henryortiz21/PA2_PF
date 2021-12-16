@@ -1,16 +1,14 @@
 package com.grupo2.agrosoft.data.service;
 
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Response;
-
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.List;
 
 import com.grupo2.agrosoft.data.entity.Proveedor;
 import com.grupo2.agrosoft.data.entity.Semilla;
 import com.grupo2.agrosoft.data.entity.Siembra;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Response;
 
 public class BaseDatosRepositoryImpl implements BaseDatosRepository {
 

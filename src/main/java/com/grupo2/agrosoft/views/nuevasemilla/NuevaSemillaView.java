@@ -53,7 +53,7 @@ public class NuevaSemillaView extends Div {
 
     }
     private Component createTitle() {
-        return new H3("Nueva siembra");
+        return new H3("Registro de nueva semilla");
     }
     
     private Component createFormLayout() {

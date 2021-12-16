@@ -7,7 +7,6 @@ import com.grupo2.agrosoft.controller.BaseDatosInteractor;
 import com.grupo2.agrosoft.controller.BaseDatosInteractorImpl;
 import com.grupo2.agrosoft.data.entity.Proveedor;
 import com.grupo2.agrosoft.views.MainLayout;
-import com.grupo2.agrosoft.views.notificaciones.Notificaciones;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;

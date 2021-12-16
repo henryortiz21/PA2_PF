@@ -27,7 +27,7 @@ public class InicioView extends Div {
 
     }
 
-    public Component createCard(String titulo, String imagen, Class nav) {
+    public <T> Component createCard(String titulo, String imagen, Class<T> nav) {
         Div con = new Div();
         con.addClassName("card");
         Image img = new Image(imagen, "");
@@ -35,7 +35,7 @@ public class InicioView extends Div {
         badge.setEnabled(false);
         con.add(img, badge);
         con.addClickListener(e->{
-            UI.getCurrent().navigate(nav);
+            UI.getCurrent().navigate((Class<? extends Component>)nav);
         });
         return con;
     }
