@@ -36,18 +36,20 @@ public interface BaseDatosRestRepository {
         @DELETE("/pls/apex/hortiz_bd/pa23p/t_proveedores")
         Call<ResponseBody> eliminarProveedor(@Query("id") Integer id);
 
+
+        //SIEMBRA
         @Headers({
                         "Content-Type: application/json",
                         "Accept-Charset: utf-8"
         })
-        @GET("/pls/apex/hortiz_bd/pa23p/t_proveedores")
+        @GET("/pls/apex/progavanzada2/uthg2/siembra")
         Call<RespuestaSiembras> consultarSiembras();
 
         @Headers({
                         "Content-Type: application/json",
                         "Accept-Charset: utf-8"
         })
-        @POST("/pls/apex/hortiz_bd/pa23p/t_siembra")
+        @POST("/pls/apex/progavanzada2/uthg2/siembra")
         Call<ResponseBody> agregarSiembra(@Body Siembra siembra);
 
 
@@ -55,7 +57,7 @@ public interface BaseDatosRestRepository {
                         "Content-Type: text/csv",
                         "Accept-Charset: utf-8"
         })
-        @DELETE("/pls/apex/hortiz_bd/pa23p/t_proveedores")
+        @DELETE("/pls/apex/progavanzada2/uthg2/siembra")
         Call<ResponseBody> eliminarSiembra(@Query("id") Integer id);
 
 

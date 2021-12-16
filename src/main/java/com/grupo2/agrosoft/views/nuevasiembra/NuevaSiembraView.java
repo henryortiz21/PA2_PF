@@ -28,7 +28,7 @@ import com.vaadin.flow.router.Route;
 @PageTitle("Nueva siembra")
 @Route(value = "nuevasiembra", layout = MainLayout.class)
 public class NuevaSiembraView extends Div {
-    private Integer produccion_mts=0,dias_cosecha=0;
+    private Integer produccion_mts = 0, dias_cosecha = 0;
     private BaseDatosInteractor interactor;
 
     private TextField descripcion = new TextField("Descripción");
@@ -52,14 +52,16 @@ public class NuevaSiembraView extends Div {
 
         bGuardar.addClickListener(e -> {
             String fecha_siembra = f_siembra.getValue().format(dtformat);
+            String t_s = tipo_siembra.getValue().substring(tipo_siembra.getValue().indexOf("  "));
+            Integer t_d=Integer.valueOf(cosecha_aproximada.getValue());
             Siembra siembra = new Siembra(
                     descripcion.getValue(),
                     ubicacion.getValue(),
-                    Integer.getInteger(dimensiones.getValue()),
-                    "TIPO DE SIEMBRA",
+                    Integer.valueOf(dimensiones.getValue()),
+                    t_s,//Tipo siembra
                     fecha_siembra,
                     f_cosecha.getValue(),
-                    "200");
+                    t_d);
             String respuesta = interactor.agregarSiembra(siembra);
             if (respuesta != null)
                 new Notificaciones("Datos almacenados correctamente", 2, 7);
@@ -70,10 +72,11 @@ public class NuevaSiembraView extends Div {
         f_siembra.addValueChangeListener(e -> {
             calcular();
         });
-        tipo_siembra.addValueChangeListener(e->{
-            String va=tipo_siembra.getValue().toString().substring(0,tipo_siembra.getValue().toString().indexOf("  "));
-            produccion_mts=list_Semilla.get((Integer.valueOf(va)-1)).getProduccio_por_metro2();
-            dias_cosecha=list_Semilla.get((Integer.valueOf(va)-1)).getTiempo_cosecha();
+        tipo_siembra.addValueChangeListener(e -> {
+            String va = tipo_siembra.getValue().toString().substring(0,
+                    tipo_siembra.getValue().toString().indexOf("  "));
+            produccion_mts = list_Semilla.get((Integer.valueOf(va) - 1)).getProduccio_por_metro2();
+            dias_cosecha = list_Semilla.get((Integer.valueOf(va) - 1)).getTiempo_cosecha();
             calcular();
         });
         obtenerSemillas();
@@ -104,25 +107,25 @@ public class NuevaSiembraView extends Div {
         list_Semilla = interactor.consultarSemillas();
         if (list_Semilla != null)
             new Notificaciones("Datos alquiridos", 2, 7);
-        else{
-            list_Semilla= new ArrayList<>();
+        else {
+            list_Semilla = new ArrayList<>();
             new Notificaciones("No se encontraron datos", 1, 7);
         }
-        List<String> lista=new ArrayList<>();
-        int a=1;
-        for(Semilla nombre:list_Semilla){
-            lista.add(a+"  "+nombre.getNombre());
+        List<String> lista = new ArrayList<>();
+        int a = 1;
+        for (Semilla nombre : list_Semilla) {
+            lista.add(a + "  " + nombre.getNombre());
             a++;
         }
-            tipo_siembra.setItems(lista);
+        tipo_siembra.setItems(lista);
     }
 
-    private void calcular(){
+    private void calcular() {
         LocalDate f = f_siembra.getValue();
         f = f.plusDays(dias_cosecha);
         String f_proxima = f.format(dtformat);
         f_cosecha.setValue(f_proxima);
-        Integer dim= dimensiones.getValue().isBlank()?0:Integer.parseInt(dimensiones.getValue());
-        cosecha_aproximada.setValue(""+(dim*produccion_mts)+" libras");
+        Integer dim = dimensiones.getValue().isBlank() ? 0 : Integer.parseInt(dimensiones.getValue());
+        cosecha_aproximada.setValue("" + (dim * produccion_mts));
     }
 }
