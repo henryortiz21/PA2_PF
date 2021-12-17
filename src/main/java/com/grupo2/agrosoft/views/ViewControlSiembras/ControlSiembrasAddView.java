@@ -34,7 +34,7 @@ public class ControlSiembrasAddView extends Div {
     private Button bCancelar = new Button("Cancelar");
 
     public ControlSiembrasAddView() {
-        addClassName("nuevocontrolsiembras-view");
+        addClassName("nuevasiembra-view");
         interactor = new BaseDatosInteractorImpl("https://apex.oracle.com", 30000L);
         add(createTitle());
         add(createFormLayout());

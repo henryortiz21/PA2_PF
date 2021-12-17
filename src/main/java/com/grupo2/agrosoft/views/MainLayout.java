@@ -3,15 +3,15 @@ package com.grupo2.agrosoft.views;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.grupo2.agrosoft.views.ListaSiembras.ListaRegistroSiembrasView;
 import com.grupo2.agrosoft.views.Inicio.InicioView;
+import com.grupo2.agrosoft.views.ListaControlSiembras.ListaControlSiembrasView;
 import com.grupo2.agrosoft.views.ListaParcelas.ListaParcelasView;
 import com.grupo2.agrosoft.views.ListaSemillas.ListaSemillasView;
-import com.grupo2.agrosoft.views.ListaControlSiembras.ListaControlSiembrasView;
+import com.grupo2.agrosoft.views.ListaSiembras.ListaRegistroSiembrasView;
 import com.grupo2.agrosoft.views.ViewControlSiembras.ControlSiembrasAddView;
+import com.grupo2.agrosoft.views.ViewParcelas.ParcelasAddView;
 import com.grupo2.agrosoft.views.ViewRegistroSiembras.RegistroSiembrasAddView;
 import com.grupo2.agrosoft.views.ViewSemillas.NuevaSemillaView;
-import com.grupo2.agrosoft.views.ViewParcelas.ParcelasAddView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;

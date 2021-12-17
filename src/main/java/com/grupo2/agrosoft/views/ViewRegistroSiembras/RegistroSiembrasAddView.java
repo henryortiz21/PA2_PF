@@ -47,7 +47,7 @@ public class RegistroSiembrasAddView extends Div {
     private Button bCancelar = new Button("Cancelar");
 
     public RegistroSiembrasAddView() {
-        addClassName("nuevoregistrosiembras-view");
+        addClassName("nuevasiembra-view");
         interactor = new BaseDatosInteractorImpl("https://apex.oracle.com", 30000L);
         add(createTitle());
         add(createFormLayout());

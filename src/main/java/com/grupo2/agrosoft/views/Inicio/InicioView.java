@@ -22,7 +22,7 @@ public class InicioView extends Div {
     public InicioView() {
         addClassNames("inicio-view", "flex", "h-full");
 
-        add(createCard("Parcelas", "images/img3.png", ParcelasAddView.class));
+        add(createCard("Parcelas", "images/parcelas.jpg", ParcelasAddView.class));
         add(createCard("Semillas", "images/semillas.png", NuevaSemillaView.class));
         add(createCard("Siembra", "images/siembra.png", RegistroSiembrasAddView.class));
         add(createCard("Control Siembras", "images/mantenimiento.png", ControlSiembrasAddView.class));

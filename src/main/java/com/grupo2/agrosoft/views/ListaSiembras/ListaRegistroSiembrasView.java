@@ -1,12 +1,14 @@
 package com.grupo2.agrosoft.views.ListaSiembras;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.grupo2.agrosoft.controller.BaseDatosInteractor;
 import com.grupo2.agrosoft.controller.BaseDatosInteractorImpl;
 import com.grupo2.agrosoft.data.entity.RegistroSiembras;
 import com.grupo2.agrosoft.views.MainLayout;
 import com.grupo2.agrosoft.views.Notificaciones.Notificaciones;
 import com.grupo2.agrosoft.views.ViewRegistroSiembras.RegistroSiembrasAddView;
-import com.grupo2.agrosoft.views.ViewSemillas.NuevaSemillaView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
@@ -24,9 +26,6 @@ import com.vaadin.flow.data.provider.ListDataProvider;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @PageTitle("Lista Registro Siembras")
 @Route(value = "listaregistrosiembras", layout = MainLayout.class)
 public class ListaRegistroSiembrasView extends Div {
@@ -39,7 +38,7 @@ public class ListaRegistroSiembrasView extends Div {
 	private Button bEliminar = new Button("Eliminar Registro Siembra", new Icon(VaadinIcon.CLOSE_SMALL));
 
 	public ListaRegistroSiembrasView() {
-		addClassNames("registrosiembras-view", "flex", "flex-col", "h-full");
+		addClassNames("parcelas-view", "flex", "flex-col", "h-full");
 		setSizeFull();
 		interactor = new BaseDatosInteractorImpl("https://apex.oracle.com", 30000L);
 		cargar_datos();

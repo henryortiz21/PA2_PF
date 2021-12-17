@@ -37,7 +37,7 @@ public class ParcelasAddView extends Div {
     private Button bCancelar = new Button("Cancelar");
 
     public ParcelasAddView() {
-        addClassName("nuevaparcela-view");
+        addClassName("nuevasiembra-view");
         interactor = new BaseDatosInteractorImpl("https://apex.oracle.com", 30000L);
         add(createTitle());
         add(createFormLayout());
