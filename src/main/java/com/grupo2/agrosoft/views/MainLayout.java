@@ -19,6 +19,7 @@ import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.html.Footer;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H2;
+import com.vaadin.flow.component.html.H5;
 import com.vaadin.flow.component.html.Header;
 import com.vaadin.flow.component.html.ListItem;
 import com.vaadin.flow.component.html.Nav;
@@ -158,6 +159,8 @@ public class MainLayout extends AppLayout {
 
     private Footer createFooter() {
         Footer layout = new Footer();
+        H5 grupoName = new H5("Grupo 2");
+        layout.add(grupoName);
         layout.addClassNames("flex", "items-center", "my-s", "px-m", "py-xs");
 
         return layout;

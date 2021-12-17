@@ -119,7 +119,6 @@ public class ListaSemillasView extends Div {
 		});
 
 		bEliminar.addClickListener(e -> {
-			new Notificaciones("EL ID ACTUAL ES "+ID, 3, 7);
 			String r = interactor.eliminarSemilla(ID);
 			if (r != null)
 				new Notificaciones("Semilla eliminada satisfactoriamente", 2, 7);

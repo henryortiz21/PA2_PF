@@ -124,9 +124,10 @@ public class ListaParcelasView extends Div {
 
 		bEliminar.addClickListener(e -> {
 			String r = interactor.eliminarParcelas(ID);
-			if (r != null)
+			if (r != null){
 				new Notificaciones("Parcela eliminada satisfactoriamente", 2, 7);
-			else
+				cargar_datos();
+			}else
 				new Notificaciones("No se pudo eliminar la parcela seleccionada", 1, 7);
 		});
 	}

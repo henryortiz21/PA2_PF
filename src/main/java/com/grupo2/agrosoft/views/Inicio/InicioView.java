@@ -1,10 +1,10 @@
 package com.grupo2.agrosoft.views.Inicio;
 
-import com.grupo2.agrosoft.views.ViewControlSiembras.ControlSiembrasAddView;
+import com.grupo2.agrosoft.views.ListaControlSiembras.ListaControlSiembrasView;
+import com.grupo2.agrosoft.views.ListaParcelas.ListaParcelasView;
+import com.grupo2.agrosoft.views.ListaSemillas.ListaSemillasView;
+import com.grupo2.agrosoft.views.ListaSiembras.ListaRegistroSiembrasView;
 import com.grupo2.agrosoft.views.MainLayout;
-import com.grupo2.agrosoft.views.ViewRegistroSiembras.RegistroSiembrasAddView;
-import com.grupo2.agrosoft.views.ViewSemillas.NuevaSemillaView;
-import com.grupo2.agrosoft.views.ViewParcelas.ParcelasAddView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.html.Div;
@@ -22,10 +22,10 @@ public class InicioView extends Div {
     public InicioView() {
         addClassNames("inicio-view", "flex", "h-full");
 
-        add(createCard("Parcelas", "images/parcelas.jpg", ParcelasAddView.class));
-        add(createCard("Semillas", "images/semillas.png", NuevaSemillaView.class));
-        add(createCard("Siembra", "images/siembra.png", RegistroSiembrasAddView.class));
-        add(createCard("Control Siembras", "images/mantenimiento.png", ControlSiembrasAddView.class));
+        add(createCard("Parcelas", "images/parcelas.jpg", ListaParcelasView.class));
+        add(createCard("Semillas", "images/semillas.png", ListaSemillasView.class));
+        add(createCard("Siembra", "images/siembra.png", ListaRegistroSiembrasView.class));
+        add(createCard("Control Siembras", "images/mantenimiento.png", ListaControlSiembrasView.class));
 
     }
 
