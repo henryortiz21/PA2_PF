@@ -8,6 +8,7 @@ import com.grupo2.agrosoft.controller.BaseDatosInteractorImpl;
 import com.grupo2.agrosoft.data.entity.Parcelas;
 import com.grupo2.agrosoft.views.MainLayout;
 import com.grupo2.agrosoft.views.notificaciones.Notificaciones;
+import com.grupo2.agrosoft.views.parcelas.ParcelasAddView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
@@ -118,7 +119,7 @@ public class ListaParcelasView extends Div {
 		});
 
 		bNuevo.addClickListener(e -> {
-			UI.getCurrent().navigate(ListaParcelasView.class);
+			UI.getCurrent().navigate(ParcelasAddView.class);
 		});
 
 		bEliminar.addClickListener(e -> {

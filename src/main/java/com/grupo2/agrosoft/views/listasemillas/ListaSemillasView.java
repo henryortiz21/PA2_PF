@@ -8,6 +8,7 @@ import com.grupo2.agrosoft.controller.BaseDatosInteractorImpl;
 import com.grupo2.agrosoft.data.entity.Semilla;
 import com.grupo2.agrosoft.views.MainLayout;
 import com.grupo2.agrosoft.views.notificaciones.Notificaciones;
+import com.grupo2.agrosoft.views.nuevasemilla.NuevaSemillaView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
@@ -114,11 +115,11 @@ public class ListaSemillasView extends Div {
 		});
 
 		bNuevo.addClickListener(e -> {
-			UI.getCurrent().navigate(ListaSemillasView.class);
+			UI.getCurrent().navigate(NuevaSemillaView.class);
 		});
 
 		bEliminar.addClickListener(e -> {
-			String r = interactor.eliminarParcelas(ID);
+			String r = interactor.eliminarSemilla(ID);
 			if (r != null)
 				new Notificaciones("Semilla eliminada satisfactoriamente", 2, 7);
 			else
