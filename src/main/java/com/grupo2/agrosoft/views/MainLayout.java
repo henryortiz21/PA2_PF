@@ -3,10 +3,13 @@ package com.grupo2.agrosoft.views;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.grupo2.agrosoft.views.ControlSiembras.ControlSiembrasAddView;
+import com.grupo2.agrosoft.views.RegistroSiembras.RegistroSiembrasAddView;
 import com.grupo2.agrosoft.views.inicio.InicioView;
 import com.grupo2.agrosoft.views.listaproveedores.ProveedoresView;
 import com.grupo2.agrosoft.views.nuevasemilla.NuevaSemillaView;
 import com.grupo2.agrosoft.views.nuevasiembra.NuevaSiembraView;
+import com.grupo2.agrosoft.views.parcelas.ParcelasAddView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
@@ -118,6 +121,9 @@ public class MainLayout extends AppLayout {
                 new MenuItemInfo("Proveedores", "la la-file", ProveedoresView.class), //
                 new MenuItemInfo("Nueva Semilla", "la la-file", NuevaSemillaView.class), //
                 new MenuItemInfo("Nueva Siembra", "la la-file", NuevaSiembraView.class), //
+                new MenuItemInfo("Nueva Parcela", "la la-file", ParcelasAddView.class), //
+                new MenuItemInfo("Nuevo Registro Siembra", "la la-file", RegistroSiembrasAddView.class), //
+                new MenuItemInfo("Nuevo Control Siembra", "la la-file", ControlSiembrasAddView.class), //
 
         };
         List<RouterLink> links = new ArrayList<>();

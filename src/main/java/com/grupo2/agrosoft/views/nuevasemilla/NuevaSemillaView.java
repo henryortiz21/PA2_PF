@@ -44,11 +44,18 @@ public class NuevaSemillaView extends Div {
                 Integer.valueOf(producto_pormetro.getValue()),
                 unidad_peso.getValue()
             );
+
             String respuesta = interactor.agregarSemilla(semilla);
-            if (respuesta != null)
+            if (respuesta != null) {
                 new Notificaciones("Datos almacenados correctamente", 2, 7);
+                clearForm();
+            }
             else
                 new Notificaciones("No se pudo almacenar la informacion", 1, 7);
+        });
+
+        bCancelar.addClickListener(buttonClickEvent -> {
+            clearForm();
         });
 
     }
@@ -69,6 +76,13 @@ public class NuevaSemillaView extends Div {
         bGuardar.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         buttonLayout.add(bGuardar, bCancelar);
         return buttonLayout;
+    }
+
+    private void clearForm(){
+        nombre.clear();
+        tiempo_cosecha.clear();
+        producto_pormetro.clear();
+        unidad_peso.clear();
     }
 
 }

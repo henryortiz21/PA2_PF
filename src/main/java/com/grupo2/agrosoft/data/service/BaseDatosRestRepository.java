@@ -1,8 +1,6 @@
 package com.grupo2.agrosoft.data.service;
 
-import com.grupo2.agrosoft.data.entity.Proveedor;
-import com.grupo2.agrosoft.data.entity.Semilla;
-import com.grupo2.agrosoft.data.entity.Siembra;
+import com.grupo2.agrosoft.data.entity.*;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -80,6 +78,77 @@ public interface BaseDatosRestRepository {
                         "Content-Type: text/csv",
                         "Accept-Charset: utf-8"
         })
-        @DELETE("/pls/apex/hortiz_bd/pa23p/t_proveedores")
+        @DELETE("/pls/apex/progavanzada2/uthg2/semillas")
         Call<ResponseBody> eliminarSemilla(@Query("id") Integer id);
+
+
+
+        // Control Siembras
+        @Headers({
+                "Content-Type: application/json",
+                "Accept-Charset: utf-8"
+        })
+        @GET("/pls/apex/progavanzada2/uthg2/controlsiembra")
+        Call<RespuestaControlSiembras> consultarControlSiembras();
+
+        @Headers({
+                "Content-Type: application/json",
+                "Accept-Charset: utf-8"
+        })
+        @POST("/pls/apex/progavanzada2/uthg2/controlsiembra")
+        Call<ResponseBody> agregarControlSiembras(@Body ControlSiembra controlSiembras);
+
+        @Headers({
+                "Content-Type: text/csv",
+                "Accept-Charset: utf-8"
+        })
+        @DELETE("/pls/apex/progavanzada2/uthg2/controlsiembra")
+        Call<ResponseBody> eliminarControlSiembras(@Query("id") Integer id);
+
+
+        // Parcelas
+        @Headers({
+                "Content-Type: application/json",
+                "Accept-Charset: utf-8"
+        })
+        @GET("/pls/apex/progavanzada2/uthg2/parcelas")
+        Call<RespuestaParcelas> consultarParcelas();
+
+        @Headers({
+                "Content-Type: application/json",
+                "Accept-Charset: utf-8"
+        })
+        @POST("/pls/apex/progavanzada2/uthg2/parcelas")
+        Call<ResponseBody> agregarParcelas(@Body Parcelas parcelas);
+
+        @Headers({
+                "Content-Type: text/csv",
+                "Accept-Charset: utf-8"
+        })
+        @DELETE("/pls/apex/progavanzada2/uthg2/parcelas")
+        Call<ResponseBody> eliminarParcelas(@Query("id") Integer id);
+
+
+        //REGISTRO SIEMBRAS
+        @Headers({
+                "Content-Type: application/json",
+                "Accept-Charset: utf-8"
+        })
+        @GET("/pls/apex/progavanzada2/uthg2/registrosiembras")
+        Call<RespuestaRegistroSiembras> consultarRegistroSiembras();
+
+        @Headers({
+                "Content-Type: application/json",
+                "Accept-Charset: utf-8"
+        })
+        @POST("/pls/apex/progavanzada2/uthg2/registrosiembras")
+        Call<ResponseBody> agregarRegistroSiembras(@Body RegistroSiembras registroSiembras);
+
+
+        @Headers({
+                "Content-Type: text/csv",
+                "Accept-Charset: utf-8"
+        })
+        @DELETE("/pls/apex/progavanzada2/uthg2/registrosiembras")
+        Call<ResponseBody> eliminarRegistroSiembras(@Query("id") Integer id);
 }
