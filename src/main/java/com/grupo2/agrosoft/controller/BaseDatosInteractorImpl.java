@@ -28,20 +28,6 @@ public class BaseDatosInteractorImpl implements BaseDatosInteractor {
         return repository.eliminarSemilla(id);
     }
 
-    //Siembra
-    @Override
-    public String agregarSiembra(Siembra siembra) {
-        return repository.agregarSiembra(siembra);
-    }
-    @Override
-    public String eliminarSiembra(Integer id) {
-        return repository.eliminarSiembra(id);
-    }
-    @Override
-    public List<Siembra> consultarSiembras() {
-        return repository.consultarSiembras();
-    }
-
     //Control Siembra
     @Override
     public List<ControlSiembra> consultarControlSiembras() { return repository.consultarControlSiembras();}

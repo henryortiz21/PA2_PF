@@ -1,10 +1,10 @@
-package com.grupo2.agrosoft.views.nuevasemilla;
+package com.grupo2.agrosoft.views.ViewSemillas;
 
 import com.grupo2.agrosoft.controller.BaseDatosInteractor;
 import com.grupo2.agrosoft.controller.BaseDatosInteractorImpl;
 import com.grupo2.agrosoft.data.entity.Semilla;
 import com.grupo2.agrosoft.views.MainLayout;
-import com.grupo2.agrosoft.views.notificaciones.Notificaciones;
+import com.grupo2.agrosoft.views.Notificaciones.Notificaciones;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -16,16 +16,16 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-@PageTitle("Nueva semilla")
+@PageTitle("Nueva Semilla")
 @Route(value = "nuevasemilla", layout = MainLayout.class)
 public class NuevaSemillaView extends Div {
 
     private BaseDatosInteractor interactor;
 
     private TextField nombre= new TextField("Nombre");
-    private TextField tiempo_cosecha= new TextField("Tiempo cosecha (dias)");
-    private TextField producto_pormetro= new TextField("Produccion por metro cuadrado");
-    private TextField unidad_peso= new TextField("Unidad de peso");
+    private TextField tiempo_cosecha= new TextField("Tiempo Cosecha (dias)");
+    private TextField producto_pormetro= new TextField("Producción Por Metro Cuadrado");
+    private TextField unidad_peso= new TextField("Unidad de Peso");
 
     private Button bGuardar = new Button("Guardar");
     private Button bCancelar = new Button("Cancelar");
@@ -60,7 +60,7 @@ public class NuevaSemillaView extends Div {
 
     }
     private Component createTitle() {
-        return new H3("Registro de nueva semilla");
+        return new H3("Registro De Nueva Semilla");
     }
     
     private Component createFormLayout() {

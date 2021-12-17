@@ -3,8 +3,6 @@ package com.grupo2.agrosoft.data.service;
 import java.util.List;
 
 import com.grupo2.agrosoft.data.entity.Semilla;
-import com.grupo2.agrosoft.data.entity.Siembra;
-import com.grupo2.agrosoft.data.entity.ControlSiembra;
 
 import com.grupo2.agrosoft.data.entity.*;
 import okhttp3.ResponseBody;
@@ -56,56 +54,6 @@ public class BaseDatosRepositoryImpl implements BaseDatosRepository {
     public String eliminarSemilla(Integer id) {
         try{
             Call<ResponseBody> call = client.getBaseDatosRestService().eliminarSemilla(id);
-            Response<ResponseBody> respuesta = call.execute();
-            if(respuesta.isSuccessful()){
-                return respuesta.message();
-            }else{
-                return null;
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-
-    //Siembra
-    @Override
-    public String agregarSiembra(Siembra siembra) {
-        try{
-            Call<ResponseBody> call = client.getBaseDatosRestService().agregarSiembra(siembra);
-            Response<ResponseBody> respuesta = call.execute();
-            if(respuesta.isSuccessful()){
-                return respuesta.message();
-            }else{
-                return null;
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    public List<Siembra> consultarSiembras() {
-        try{
-            Call<RespuestaSiembras> call = client.getBaseDatosRestService().consultarSiembras();
-            Response<RespuestaSiembras> respuesta = call.execute();
-            if(respuesta.isSuccessful()){
-                return respuesta.body().getItems();
-            }else{
-                return null;
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    public String eliminarSiembra(Integer id) {
-        try{
-            Call<ResponseBody> call = client.getBaseDatosRestService().eliminarSiembra(id);
             Response<ResponseBody> respuesta = call.execute();
             if(respuesta.isSuccessful()){
                 return respuesta.message();

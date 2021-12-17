@@ -3,14 +3,15 @@ package com.grupo2.agrosoft.views;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.grupo2.agrosoft.views.ControlSiembras.ControlSiembrasAddView;
-import com.grupo2.agrosoft.views.RegistroSiembras.RegistroSiembrasAddView;
-import com.grupo2.agrosoft.views.inicio.InicioView;
-import com.grupo2.agrosoft.views.listaparcelas.ListaParcelasView;
-import com.grupo2.agrosoft.views.listasemillas.ListaSemillasView;
-import com.grupo2.agrosoft.views.nuevasemilla.NuevaSemillaView;
-import com.grupo2.agrosoft.views.nuevasiembra.NuevaSiembraView;
-import com.grupo2.agrosoft.views.parcelas.ParcelasAddView;
+import com.grupo2.agrosoft.views.ListaSiembras.ListaRegistroSiembrasView;
+import com.grupo2.agrosoft.views.Inicio.InicioView;
+import com.grupo2.agrosoft.views.ListaParcelas.ListaParcelasView;
+import com.grupo2.agrosoft.views.ListaSemillas.ListaSemillasView;
+import com.grupo2.agrosoft.views.ListaControlSiembras.ListaControlSiembrasView;
+import com.grupo2.agrosoft.views.ViewControlSiembras.ControlSiembrasAddView;
+import com.grupo2.agrosoft.views.ViewRegistroSiembras.RegistroSiembrasAddView;
+import com.grupo2.agrosoft.views.ViewSemillas.NuevaSemillaView;
+import com.grupo2.agrosoft.views.ViewParcelas.ParcelasAddView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
@@ -119,13 +120,14 @@ public class MainLayout extends AppLayout {
     private List<RouterLink> createLinks() {
         MenuItemInfo[] menuItems = new MenuItemInfo[]{ //
                 new MenuItemInfo("Inicio", "la la-file", InicioView.class), //
-                new MenuItemInfo("Lista semillas", "la la-file", ListaSemillasView.class), //
-                new MenuItemInfo("Lista parcelas", "la la-file", ListaParcelasView.class), //
-                new MenuItemInfo("Nueva Semilla", "la la-file", NuevaSemillaView.class), //
-                new MenuItemInfo("Nueva Siembra", "la la-file", NuevaSiembraView.class), //
                 new MenuItemInfo("Nueva Parcela", "la la-file", ParcelasAddView.class), //
+                new MenuItemInfo("Nueva Semilla", "la la-file", NuevaSemillaView.class), //
                 new MenuItemInfo("Nuevo Registro Siembra", "la la-file", RegistroSiembrasAddView.class), //
                 new MenuItemInfo("Nuevo Control Siembra", "la la-file", ControlSiembrasAddView.class), //
+                new MenuItemInfo("Lista Parcelas", "la la-file", ListaParcelasView.class), //
+                new MenuItemInfo("Lista Semillas", "la la-file", ListaSemillasView.class), //
+                new MenuItemInfo("Lista Registro Siembras", "la la-file", ListaRegistroSiembrasView.class), //
+                new MenuItemInfo("Lista Control Siembras", "la la-file", ListaControlSiembrasView.class), //
 
         };
         List<RouterLink> links = new ArrayList<>();

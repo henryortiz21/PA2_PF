@@ -1,11 +1,11 @@
-package com.grupo2.agrosoft.views.ControlSiembras;
+package com.grupo2.agrosoft.views.ViewControlSiembras;
 
 import com.grupo2.agrosoft.controller.BaseDatosInteractor;
 import com.grupo2.agrosoft.controller.BaseDatosInteractorImpl;
 import com.grupo2.agrosoft.data.entity.ControlSiembra;
 import com.grupo2.agrosoft.data.entity.RegistroSiembras;
 import com.grupo2.agrosoft.views.MainLayout;
-import com.grupo2.agrosoft.views.notificaciones.Notificaciones;
+import com.grupo2.agrosoft.views.Notificaciones.Notificaciones;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -66,11 +66,10 @@ public class ControlSiembrasAddView extends Div {
 
         bCancelar.addClickListener(buttonClickEvent -> {
             clearForm();});
-
     }
 
     private Component createTitle() {
-        return new H3("Nuevo Control Siembra");
+        return new H3("Control Siembra");
     }
 
     private Component createFormLayout() {
@@ -92,8 +91,10 @@ public class ControlSiembrasAddView extends Div {
     }
 
     private void DatosComboBox() {
-        cmbCodigo.setItems(interactor.consultarRegistroSiembras());
-        cmbCodigo.setItemLabelGenerator(RegistroSiembras::getCodigo);
+        if (interactor.consultarRegistroSiembras().stream().count() > 0) {
+            cmbCodigo.setItems(interactor.consultarRegistroSiembras());
+            cmbCodigo.setItemLabelGenerator(RegistroSiembras::getCodigo);
+        }
 
         cmbRiego.setItems("Diario", "Semanal", "Quincenal", "Mensual");
         cmbFertilizacion.setItems("Diario", "Semanal", "Quincenal", "Mensual");
@@ -103,8 +104,11 @@ public class ControlSiembrasAddView extends Div {
 
     private void clearForm()
     {
-        cmbCodigo.setItems(interactor.consultarRegistroSiembras());
-        cmbCodigo.setItemLabelGenerator(RegistroSiembras::getCodigo);
+        if (interactor.consultarRegistroSiembras().stream().count() > 0) {
+            cmbCodigo.setItems(interactor.consultarRegistroSiembras());
+            cmbCodigo.setItemLabelGenerator(RegistroSiembras::getCodigo);
+        }
+
         tipo_siembra.clear();
         cmbRiego.setValue("");
         cmbFertilizacion.setValue("");

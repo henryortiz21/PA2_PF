@@ -13,22 +13,6 @@ import retrofit2.http.Query;
 
 public interface BaseDatosRestRepository {
 
-        //SIEMBRA
-        @Headers({
-                        "Content-Type: application/json",
-                        "Accept-Charset: utf-8"
-        })
-        @GET("/pls/apex/progavanzada2/uthg2/siembra")
-        Call<RespuestaSiembras> consultarSiembras();
-
-        @Headers({
-                        "Content-Type: application/json",
-                        "Accept-Charset: utf-8"
-        })
-        @POST("/pls/apex/progavanzada2/uthg2/siembra")
-        Call<ResponseBody> agregarSiembra(@Body Siembra siembra);
-
-
         @Headers({
                         "Content-Type: text/csv",
                         "Accept-Charset: utf-8"

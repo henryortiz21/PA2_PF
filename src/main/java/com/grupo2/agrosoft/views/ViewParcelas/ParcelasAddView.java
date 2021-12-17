@@ -1,10 +1,10 @@
-package com.grupo2.agrosoft.views.parcelas;
+package com.grupo2.agrosoft.views.ViewParcelas;
 
 import com.grupo2.agrosoft.controller.BaseDatosInteractor;
 import com.grupo2.agrosoft.controller.BaseDatosInteractorImpl;
 import com.grupo2.agrosoft.data.entity.Parcelas;
 import com.grupo2.agrosoft.views.MainLayout;
-import com.grupo2.agrosoft.views.notificaciones.Notificaciones;
+import com.grupo2.agrosoft.views.Notificaciones.Notificaciones;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -88,7 +88,7 @@ public class ParcelasAddView extends Div {
 
     }
     private Component createTitle() {
-        return new H3("Nueva Parcela");
+        return new H3("Registro Nueva Parcela");
     }
     
     private Component createFormLayout() {

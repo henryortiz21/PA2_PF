@@ -1,4 +1,4 @@
-package com.grupo2.agrosoft.views.RegistroSiembras;
+package com.grupo2.agrosoft.views.ViewRegistroSiembras;
 
 import com.grupo2.agrosoft.controller.BaseDatosInteractor;
 import com.grupo2.agrosoft.controller.BaseDatosInteractorImpl;
@@ -6,7 +6,7 @@ import com.grupo2.agrosoft.data.entity.Parcelas;
 import com.grupo2.agrosoft.data.entity.RegistroSiembras;
 import com.grupo2.agrosoft.data.entity.Semilla;
 import com.grupo2.agrosoft.views.MainLayout;
-import com.grupo2.agrosoft.views.notificaciones.Notificaciones;
+import com.grupo2.agrosoft.views.Notificaciones.Notificaciones;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -24,7 +24,7 @@ import com.vaadin.flow.router.Route;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-@PageTitle("Nuevo Registro Siembras")
+@PageTitle("Registro Siembras")
 @Route(value = "nuevoregistrosiembras", layout = MainLayout.class)
 public class RegistroSiembrasAddView extends Div {
     private BaseDatosInteractor interactor;
@@ -131,12 +131,13 @@ public class RegistroSiembrasAddView extends Div {
     }
 
     private void DatosComboBox() {
-        cmbParcelas.setItems(interactor.consultarParcelas());
-        cmbParcelas.setItemLabelGenerator(Parcelas::getNombre);
+        if (interactor.consultarParcelas().stream().count() > 0) {
+            cmbParcelas.setItems(interactor.consultarParcelas());
+            cmbParcelas.setItemLabelGenerator(Parcelas::getNombre);
 
-        cmbTipo_siembra.setItems(interactor.consultarSemillas());
-        cmbTipo_siembra.setItemLabelGenerator(Semilla::getNombre);
-
+            cmbTipo_siembra.setItems(interactor.consultarSemillas());
+            cmbTipo_siembra.setItemLabelGenerator(Semilla::getNombre);
+        }
         cmbEstatus.setItems("En Proceso", "Finalizado");
         cmbEstatus.setValue("En Proceso");
     }

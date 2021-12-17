@@ -9,10 +9,6 @@ public interface BaseDatosRepository {
     String agregarSemilla(Semilla semilla);
     String eliminarSemilla(Integer id);
 
-    List<Siembra> consultarSiembras();
-    String agregarSiembra(Siembra siembra);
-    String eliminarSiembra(Integer id);
-
     List<ControlSiembra> consultarControlSiembras();
     String agregarControlSiembra(ControlSiembra controlSiembra);
     String eliminarControlSiembra(Integer id);

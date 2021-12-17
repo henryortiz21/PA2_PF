@@ -1,4 +1,4 @@
-package com.grupo2.agrosoft.views.listasemillas;
+package com.grupo2.agrosoft.views.ListaSemillas;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,8 +7,8 @@ import com.grupo2.agrosoft.controller.BaseDatosInteractor;
 import com.grupo2.agrosoft.controller.BaseDatosInteractorImpl;
 import com.grupo2.agrosoft.data.entity.Semilla;
 import com.grupo2.agrosoft.views.MainLayout;
-import com.grupo2.agrosoft.views.notificaciones.Notificaciones;
-import com.grupo2.agrosoft.views.nuevasemilla.NuevaSemillaView;
+import com.grupo2.agrosoft.views.Notificaciones.Notificaciones;
+import com.grupo2.agrosoft.views.ViewSemillas.NuevaSemillaView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;

@@ -1,14 +1,12 @@
-package com.grupo2.agrosoft.views.listaparcelas;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.grupo2.agrosoft.views.ListaControlSiembras;
 
 import com.grupo2.agrosoft.controller.BaseDatosInteractor;
 import com.grupo2.agrosoft.controller.BaseDatosInteractorImpl;
-import com.grupo2.agrosoft.data.entity.Parcelas;
+import com.grupo2.agrosoft.data.entity.ControlSiembra;
 import com.grupo2.agrosoft.views.MainLayout;
-import com.grupo2.agrosoft.views.notificaciones.Notificaciones;
-import com.grupo2.agrosoft.views.parcelas.ParcelasAddView;
+import com.grupo2.agrosoft.views.Notificaciones.Notificaciones;
+import com.grupo2.agrosoft.views.ViewControlSiembras.ControlSiembrasAddView;
+import com.grupo2.agrosoft.views.ViewSemillas.NuevaSemillaView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
@@ -26,19 +24,22 @@ import com.vaadin.flow.data.provider.ListDataProvider;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-@PageTitle("Parcelas")
-@Route(value = "parcelas", layout = MainLayout.class)
-public class ListaParcelasView extends Div {
+import java.util.ArrayList;
+import java.util.List;
+
+@PageTitle("Lista Control Siembras")
+@Route(value = "listacontrolsiembras", layout = MainLayout.class)
+public class ListaControlSiembrasView extends Div {
 	private Integer ID = 0;
-	private Grid<Parcelas> grid = new Grid<>(Parcelas.class, false);
-	private List<Parcelas> lista_parcelas = new ArrayList<>();
+	private Grid<ControlSiembra> grid = new Grid<>(ControlSiembra.class, false);
+	private List<ControlSiembra> controlSiembras = new ArrayList<>();
 	private BaseDatosInteractor interactor;
 
-	private Button bNuevo = new Button("Nueva parcela", new Icon(VaadinIcon.PLUS_CIRCLE));
-	private Button bEliminar = new Button("Eliminar parcela", new Icon(VaadinIcon.CLOSE_SMALL));
+	private Button bNuevo = new Button("Nuevo Control Siembra", new Icon(VaadinIcon.PLUS_CIRCLE));
+	private Button bEliminar = new Button("Eliminar Control Siembra", new Icon(VaadinIcon.CLOSE_SMALL));
 
-	public ListaParcelasView() {
-		addClassNames("parcelas-view", "flex", "flex-col", "h-full");
+	public ListaControlSiembrasView() {
+		addClassNames("controlsiembras-view", "flex", "flex-col", "h-full");
 		setSizeFull();
 		interactor = new BaseDatosInteractorImpl("https://apex.oracle.com", 30000L);
 		cargar_datos();
@@ -74,14 +75,14 @@ public class ListaParcelasView extends Div {
 		grid.setHeightFull();
 
 		grid.addColumn("id").setAutoWidth(true);
-		grid.addColumn("nombre").setAutoWidth(true);
-		grid.addColumn("descripcion").setAutoWidth(true);
-		grid.addColumn("ubicacion").setAutoWidth(true);
-		grid.addColumn("ancho").setAutoWidth(true);
-		grid.addColumn("largo").setAutoWidth(true);
-		grid.addColumn("dimension_met2").setAutoWidth(true).setHeader("Dimensiones m²");
-		grid.addColumn("estatus").setAutoWidth(true).setHeader("Estado");
-		grid.setDataProvider(new ListDataProvider<>(lista_parcelas));
+		grid.addColumn("codigo").setAutoWidth(true).setHeader("Código");
+		grid.addColumn("tipo_siembra").setAutoWidth(true).setHeader("Tipo Siembra");
+		grid.addColumn("riego").setAutoWidth(true).setHeader("Riego");
+		grid.addColumn("fertilizacion").setAutoWidth(true).setHeader("Fertilización");
+		grid.addColumn("aplicacioninsecticida").setAutoWidth(true).setHeader("Aplicación Insecticida");
+		grid.addColumn("limpieza").setAutoWidth(true).setHeader("Limpieza");
+
+		grid.setDataProvider(new ListDataProvider<>(controlSiembras));
 	}
 
 	private Component buttonActions() {
@@ -98,9 +99,9 @@ public class ListaParcelasView extends Div {
 	}
 
 	private void cargar_datos() {
-		lista_parcelas = interactor.consultarParcelas();
-		if (lista_parcelas == null)
-			lista_parcelas = new ArrayList<>();
+		controlSiembras = interactor.consultarControlSiembras();
+		if (controlSiembras == null)
+			controlSiembras = new ArrayList<>();
 		grid.select(null);
 		grid.getDataProvider().refreshAll();
 	}
@@ -119,15 +120,15 @@ public class ListaParcelasView extends Div {
 		});
 
 		bNuevo.addClickListener(e -> {
-			UI.getCurrent().navigate(ParcelasAddView.class);
+			UI.getCurrent().navigate(ControlSiembrasAddView.class);
 		});
 
 		bEliminar.addClickListener(e -> {
-			String r = interactor.eliminarParcelas(ID);
+			String r = interactor.eliminarControlSiembras(ID);
 			if (r != null)
-				new Notificaciones("Parcela eliminada satisfactoriamente", 2, 7);
+				new Notificaciones("Control Siembra eliminado satisfactoriamente", 2, 7);
 			else
-				new Notificaciones("No se pudo eliminar la parcela seleccionada", 1, 7);
+				new Notificaciones("No se pudo eliminar el Control Siembra seleccionada", 1, 7);
 		});
 	}
 }

@@ -1,4 +1,4 @@
-package com.grupo2.agrosoft.views.notificaciones;
+package com.grupo2.agrosoft.views.Notificaciones;
 
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.Icon;
