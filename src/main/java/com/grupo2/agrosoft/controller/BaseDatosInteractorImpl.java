@@ -13,21 +13,7 @@ public class BaseDatosInteractorImpl implements BaseDatosInteractor {
     public BaseDatosInteractorImpl(String url, Long timeout){
         this.repository = new BaseDatosRepositoryImpl(url, timeout);
     }
-    //Proveedor
-    @Override
-    public List<Proveedor> consultarProveedores() {
-        return repository.consultarProveedores();
-    }
-    @Override
-    public String agregarProveedor(Proveedor proveedor) {
-        return repository.agregarProveedor(proveedor);
-    }
-
-    @Override
-    public String eliminarProveedor(Integer id) {
-        return repository.eliminarProveedor(id);
-    }
-
+    
     //Semilla
     @Override
     public List<Semilla> consultarSemillas() {

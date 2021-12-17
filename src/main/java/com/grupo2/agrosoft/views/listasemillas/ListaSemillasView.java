@@ -86,7 +86,7 @@ public class ListaSemillasView extends Div {
 		bNuevo.addThemeVariants(ButtonVariant.LUMO_LARGE);
 		bNuevo.addClassName("buttonadd");
 		bEliminar.addThemeVariants(ButtonVariant.LUMO_LARGE);
-		//bBorrar.setEnabled(false);
+		bEliminar.setEnabled(false);
 		hl.add(bNuevo, bEliminar);
 		hl.getStyle().set("padding-left", "10px");
 		return hl;

@@ -22,6 +22,7 @@ public class InicioView extends Div {
 
         add(createCard("Semillas", "images/semillas.png",ListaSemillasView.class));
         add(createCard("Parcelas", "images/parcelas.jpg",ListaParcelasView.class));
+        //add(createCard("Manteminiento", "images/mantenimiento.png",Mante.class));
         //add(createCard("Siembra", "images/siembra.png",Lista.class));
         //add(createCard("Manteminiento", "images/mantenimiento.png",ProveedoresView.class));
 

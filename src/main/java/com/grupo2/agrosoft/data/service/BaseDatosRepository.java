@@ -5,10 +5,6 @@ import java.util.List;
 import com.grupo2.agrosoft.data.entity.*;
 
 public interface BaseDatosRepository {
-    List<Proveedor> consultarProveedores();
-    String agregarProveedor(Proveedor proveedor);
-    String eliminarProveedor(Integer id);
-
     List<Semilla> consultarSemillas();
     String agregarSemilla(Semilla semilla);
     String eliminarSemilla(Integer id);

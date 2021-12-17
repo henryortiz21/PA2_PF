@@ -13,28 +13,6 @@ import retrofit2.http.Query;
 
 public interface BaseDatosRestRepository {
 
-        @Headers({
-                        "Content-Type: application/json",
-                        "Accept-Charset: utf-8"
-        })
-        @GET("/pls/apex/hortiz_bd/pa23p/t_proveedores")
-        Call<RespuestaProveedores> consultarProveedores();
-
-        @Headers({
-                        "Content-Type: application/json",
-                        "Accept-Charset: utf-8"
-        })
-        @POST("/pls/apex/hortiz_bd/pa23p/t_proveedores")
-        Call<ResponseBody> agregarProveedor(@Body Proveedor proveedor);
-
-        @Headers({
-                        "Content-Type: text/csv",
-                        "Accept-Charset: utf-8"
-        })
-        @DELETE("/pls/apex/hortiz_bd/pa23p/t_proveedores")
-        Call<ResponseBody> eliminarProveedor(@Query("id") Integer id);
-
-
         //SIEMBRA
         @Headers({
                         "Content-Type: application/json",
