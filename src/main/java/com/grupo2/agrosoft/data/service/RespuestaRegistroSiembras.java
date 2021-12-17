@@ -1,7 +1,6 @@
 package com.grupo2.agrosoft.data.service;
 
 import com.grupo2.agrosoft.data.entity.RegistroSiembras;
-import com.grupo2.agrosoft.data.entity.Siembra;
 
 import java.util.List;
 

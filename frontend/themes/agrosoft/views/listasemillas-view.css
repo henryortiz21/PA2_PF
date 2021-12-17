@@ -1,0 +1,50 @@
+.istasemillas-view {
+    display: flex;
+    height: 100%;
+  }
+  
+  .istasemillas-view vaadin-grid {
+    height: 100%;
+    line-height: var(--lumo-line-height-m);
+  }
+  
+  .istasemillas-view .vl {
+    height:fit-content;
+    display:inline-block;
+    padding-top:10px;
+    text-align: center;
+  }
+
+  .istasemillas-view .name {
+    font-size: var(--lumo-font-size-s);
+    font-weight: bold;
+    margin-right: var(--lumo-space-s);
+  }
+  
+  .istasemillas-view .buttonadd {
+    display: inline-block;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    transition: all 0.5s;
+    vertical-align:middle;
+  }
+  .istasemillas-view .buttonadd:hover {
+    box-shadow: 0 0 5px #00b606;
+  }
+
+  .istasemillas-view .buttondel {
+    display: inline-block;
+    background-color: #f44336;
+    border: none;
+    color: white;
+    text-align: center;
+    transition: all 0.5s;
+    vertical-align:middle;
+  }
+  .istasemillas-view .buttondel:hover {
+    box-shadow: 0 0 5px #ff6055;
+  }
+
+

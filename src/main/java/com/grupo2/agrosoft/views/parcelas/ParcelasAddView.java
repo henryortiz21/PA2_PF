@@ -31,7 +31,7 @@ public class ParcelasAddView extends Div {
     private TextField ancho = new TextField("Ancho");
     private TextField largo = new TextField("Largo");
     private TextField dimensiones = new TextField("Dimensiones Metros Cuadrados");
-    private ComboBox cmbEstatus = new ComboBox("Estatus");
+    private ComboBox<String> cmbEstatus = new ComboBox<>("Estatus");
 
     private Button bGuardar = new Button("Guardar");
     private Button bCancelar = new Button("Cancelar");

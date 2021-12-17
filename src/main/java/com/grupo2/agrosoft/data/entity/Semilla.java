@@ -6,7 +6,6 @@ public class Semilla {
     private Integer tiempocosechadias;
     private Integer producto_x_metro2;
     private String unidadpeso;
-    
     public Integer getId() {
         return id;
     }
@@ -19,31 +18,30 @@ public class Semilla {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public Integer getTiempo_cosecha() {
+    public Integer getTiempocosechadias() {
         return tiempocosechadias;
     }
-    public void setTiempo_cosecha(Integer tiempo_cosecha) {
-        this.tiempocosechadias = tiempo_cosecha;
+    public void setTiempocosechadias(Integer tiempocosechadias) {
+        this.tiempocosechadias = tiempocosechadias;
     }
-    public Integer getProduccio_por_metro2() {
+    public Integer getProducto_x_metro2() {
         return producto_x_metro2;
     }
-    public void setProduccio_por_metro2(Integer produccio_por_metro2) {
-        this.producto_x_metro2 = produccio_por_metro2;
+    public void setProducto_x_metro2(Integer producto_x_metro2) {
+        this.producto_x_metro2 = producto_x_metro2;
     }
-    public String getUnidad_peso() {
+    public String getUnidadpeso() {
         return unidadpeso;
     }
-    public void setUnidad_peso(String unidad_peso) {
-        this.unidadpeso = unidad_peso;
+    public void setUnidadpeso(String unidadpeso) {
+        this.unidadpeso = unidadpeso;
     }
-    public Semilla(String nombre, Integer tiempo_cosecha, Integer produccio_por_metro2, String unidad_peso) {
+    public Semilla(String nombre, Integer tiempocosechadias, Integer producto_x_metro2, String unidadpeso) {
         this.nombre = nombre;
-        this.tiempocosechadias = tiempo_cosecha;
-        this.producto_x_metro2 = produccio_por_metro2;
-        this.unidadpeso = unidad_peso;
+        this.tiempocosechadias = tiempocosechadias;
+        this.producto_x_metro2 = producto_x_metro2;
+        this.unidadpeso = unidadpeso;
     }
     public Semilla() {
     }
-    
 }

@@ -75,8 +75,8 @@ public class NuevaSiembraView extends Div {
         tipo_siembra.addValueChangeListener(e -> {
             String va = tipo_siembra.getValue().toString().substring(0,
                     tipo_siembra.getValue().toString().indexOf("  "));
-            produccion_mts = list_Semilla.get((Integer.valueOf(va) - 1)).getProduccio_por_metro2();
-            dias_cosecha = list_Semilla.get((Integer.valueOf(va) - 1)).getTiempo_cosecha();
+            produccion_mts = list_Semilla.get((Integer.valueOf(va) - 1)).getProducto_x_metro2();
+            dias_cosecha = list_Semilla.get((Integer.valueOf(va) - 1)).getTiempocosechadias();
             calcular();
         });
         obtenerSemillas();

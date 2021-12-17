@@ -27,7 +27,6 @@ import java.time.format.DateTimeFormatter;
 @PageTitle("Nuevo Registro Siembras")
 @Route(value = "nuevoregistrosiembras", layout = MainLayout.class)
 public class RegistroSiembrasAddView extends Div {
-    private Integer produccion_mts = 0, dias_cosecha = 0;
     private BaseDatosInteractor interactor;
 
     private TextField codigo = new TextField("Código");
@@ -64,7 +63,7 @@ public class RegistroSiembrasAddView extends Div {
         });
 
         cmbTipo_siembra.addValueChangeListener(e->{
-            producto.setValue(cmbTipo_siembra.getValue().getProduccio_por_metro2().toString());
+            producto.setValue(cmbTipo_siembra.getValue().getProducto_x_metro2().toString());
             Calcular();
         });
 
@@ -144,11 +143,11 @@ public class RegistroSiembrasAddView extends Div {
 
     private void Calcular() {
         LocalDate f = f_siembra.getValue();
-        f = f.plusDays(cmbTipo_siembra.getValue().getTiempo_cosecha());
+        f = f.plusDays(cmbTipo_siembra.getValue().getTiempocosechadias());
         String f_proxima = f.format(dtformat);
         f_cosecha.setValue(f_proxima);
 
-        Integer ProduccionTotal = cmbParcelas.getValue().getDimension_met2() * cmbTipo_siembra.getValue().getProduccio_por_metro2();
+        Integer ProduccionTotal = cmbParcelas.getValue().getDimension_met2() * cmbTipo_siembra.getValue().getProducto_x_metro2();
         cosecha_aproximada.setValue(ProduccionTotal.toString());
         codigo.setValue(cmbParcelas.getValue().getNombre() + "-" + f_siembra.getValue().format(dtformat));
     }

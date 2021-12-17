@@ -1,8 +1,8 @@
 package com.grupo2.agrosoft.views.inicio;
 
 import com.grupo2.agrosoft.views.MainLayout;
-import com.grupo2.agrosoft.views.listaempleados.ListaEmpleadosView;
-import com.grupo2.agrosoft.views.listaproveedores.ProveedoresView;
+import com.grupo2.agrosoft.views.listaparcelas.ListaParcelasView;
+import com.grupo2.agrosoft.views.listasemillas.ListaSemillasView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.html.Div;
@@ -20,10 +20,10 @@ public class InicioView extends Div {
     public InicioView() {
         addClassNames("inicio-view", "flex", "h-full");
 
-        add(createCard("Semillas", "images/semillas.png",ProveedoresView.class));
-        add(createCard("Siembra", "images/siembra.png",ProveedoresView.class));
-        add(createCard("Manteminiento", "images/mantenimiento.png",ProveedoresView.class));
-        add(createCard("Productos", "images/img3.png",ListaEmpleadosView.class));
+        add(createCard("Semillas", "images/semillas.png",ListaSemillasView.class));
+        add(createCard("Parcelas", "images/parcelas.jpg",ListaParcelasView.class));
+        //add(createCard("Siembra", "images/siembra.png",Lista.class));
+        //add(createCard("Manteminiento", "images/mantenimiento.png",ProveedoresView.class));
 
     }
 

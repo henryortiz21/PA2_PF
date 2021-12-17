@@ -6,7 +6,6 @@ import java.util.List;
 import com.grupo2.agrosoft.views.ControlSiembras.ControlSiembrasAddView;
 import com.grupo2.agrosoft.views.RegistroSiembras.RegistroSiembrasAddView;
 import com.grupo2.agrosoft.views.inicio.InicioView;
-import com.grupo2.agrosoft.views.listaproveedores.ProveedoresView;
 import com.grupo2.agrosoft.views.nuevasemilla.NuevaSemillaView;
 import com.grupo2.agrosoft.views.nuevasiembra.NuevaSiembraView;
 import com.grupo2.agrosoft.views.parcelas.ParcelasAddView;
@@ -118,7 +117,6 @@ public class MainLayout extends AppLayout {
     private List<RouterLink> createLinks() {
         MenuItemInfo[] menuItems = new MenuItemInfo[]{ //
                 new MenuItemInfo("Inicio", "la la-file", InicioView.class), //
-                new MenuItemInfo("Proveedores", "la la-file", ProveedoresView.class), //
                 new MenuItemInfo("Nueva Semilla", "la la-file", NuevaSemillaView.class), //
                 new MenuItemInfo("Nueva Siembra", "la la-file", NuevaSiembraView.class), //
                 new MenuItemInfo("Nueva Parcela", "la la-file", ParcelasAddView.class), //
