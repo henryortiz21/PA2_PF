@@ -36,7 +36,7 @@ public class ListaControlSiembrasView extends Div {
 	private BaseDatosInteractor interactor;
 
 	private Button bNuevo = new Button("Nuevo Control Siembra", new Icon(VaadinIcon.PLUS_CIRCLE));
-	private Button bEliminar = new Button("Eliminar Control Siembra", new Icon(VaadinIcon.CLOSE_SMALL));
+	private Button bEliminar = new Button("Eliminar Control Siembra", new Icon(VaadinIcon.TRASH));
 
 	public ListaControlSiembrasView() {
 		addClassNames("parcelas-view", "flex", "flex-col", "h-full");

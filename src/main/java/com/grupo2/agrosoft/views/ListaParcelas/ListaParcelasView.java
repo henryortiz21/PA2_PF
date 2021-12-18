@@ -36,7 +36,7 @@ public class ListaParcelasView extends Div {
 	private BaseDatosInteractor interactor;
 
 	private Button bNuevo = new Button("Nueva parcela", new Icon(VaadinIcon.PLUS_CIRCLE));
-	private Button bEliminar = new Button("Eliminar parcela", new Icon(VaadinIcon.CLOSE_SMALL));
+	private Button bEliminar = new Button("Eliminar parcela", new Icon(VaadinIcon.TRASH));
 
 	public ListaParcelasView() {
 		addClassNames("parcelas-view", "flex", "flex-col", "h-full");
