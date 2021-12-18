@@ -120,15 +120,15 @@ public class MainLayout extends AppLayout {
 
     private List<RouterLink> createLinks() {
         MenuItemInfo[] menuItems = new MenuItemInfo[]{ //
-                new MenuItemInfo("Inicio", "la la-file", InicioView.class), //
-                new MenuItemInfo("Nueva Parcela", "la la-file", ParcelasAddView.class), //
-                new MenuItemInfo("Nueva Semilla", "la la-file", NuevaSemillaView.class), //
-                new MenuItemInfo("Nuevo Registro Siembra", "la la-file", RegistroSiembrasAddView.class), //
-                new MenuItemInfo("Nuevo Control Siembra", "la la-file", ControlSiembrasAddView.class), //
-                new MenuItemInfo("Lista Parcelas", "la la-file", ListaParcelasView.class), //
-                new MenuItemInfo("Lista Semillas", "la la-file", ListaSemillasView.class), //
-                new MenuItemInfo("Lista Registro Siembras", "la la-file", ListaRegistroSiembrasView.class), //
-                new MenuItemInfo("Lista Control Siembras", "la la-file", ListaControlSiembrasView.class), //
+                new MenuItemInfo("Inicio", "la la-home", InicioView.class), //
+                new MenuItemInfo("Nueva Parcela", "la la-plus-circle", ParcelasAddView.class), //
+                new MenuItemInfo("Nueva Semilla", "la la-plus-circle", NuevaSemillaView.class), //
+                new MenuItemInfo("Nuevo Registro Siembra", "la la-plus-circle", RegistroSiembrasAddView.class), //
+                new MenuItemInfo("Nuevo Control Siembra", "la la-plus-circle", ControlSiembrasAddView.class), //
+                new MenuItemInfo("Lista Parcelas", "la la-th-list", ListaParcelasView.class), //
+                new MenuItemInfo("Lista Semillas", "la la-th-list", ListaSemillasView.class), //
+                new MenuItemInfo("Lista Registro Siembras", "la la-th-list", ListaRegistroSiembrasView.class), //
+                new MenuItemInfo("Lista Control Siembras", "la la-th-list", ListaControlSiembrasView.class), //
 
         };
         List<RouterLink> links = new ArrayList<>();
