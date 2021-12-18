@@ -22,7 +22,9 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 @PageTitle("Registro Siembras")
 @Route(value = "nuevoregistrosiembras", layout = MainLayout.class)
@@ -56,19 +58,25 @@ public class RegistroSiembrasAddView extends Div {
         DatosComboBox();
 
         cmbParcelas.addValueChangeListener(e->{
-            descripcion.setValue(cmbParcelas.getValue().getDescripcion());
-            ubicacion.setValue(cmbParcelas.getValue().getUbicacion());
-            dimensiones.setValue(cmbParcelas.getValue().getDimension_met2().toString());
-            Calcular();
+            if (e.getValue() != null) {
+                descripcion.setValue(cmbParcelas.getValue().getDescripcion());
+                ubicacion.setValue(cmbParcelas.getValue().getUbicacion());
+                dimensiones.setValue(cmbParcelas.getValue().getDimension_met2().toString());
+                Calcular();
+            }
         });
 
         cmbTipo_siembra.addValueChangeListener(e->{
-            producto.setValue(cmbTipo_siembra.getValue().getProducto_x_metro2().toString());
-            Calcular();
+            if (e.getValue() != null) {
+                producto.setValue(cmbTipo_siembra.getValue().getProducto_x_metro2().toString());
+                Calcular();
+            }
         });
 
         f_siembra.addValueChangeListener(e -> {
-            Calcular();
+            if (e.getValue() != null) {
+                Calcular();
+            }
         });
 
         bGuardar.addClickListener(e -> {
@@ -159,7 +167,7 @@ public class RegistroSiembrasAddView extends Div {
         ubicacion.clear();
         dimensiones.clear();
         producto.clear();
-        f_siembra.clear();
+        f_siembra.setValue(LocalDate.now());
         f_cosecha.clear();
         cosecha_aproximada.clear();
 

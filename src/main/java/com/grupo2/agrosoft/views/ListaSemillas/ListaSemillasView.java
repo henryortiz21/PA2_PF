@@ -79,6 +79,7 @@ public class ListaSemillasView extends Div {
 		grid.addColumn("nombre").setAutoWidth(true);
 		grid.addColumn("tiempocosechadias").setAutoWidth(true).setHeader("Tiempo cosecha (dias)");
 		grid.addColumn("producto_x_metro2").setAutoWidth(true).setHeader("Produccion por m²");
+		grid.addColumn("unidadpeso").setAutoWidth(true).setHeader("Unidad Peso");
 		grid.setDataProvider(new ListDataProvider<>(lista_semillas));
 	}
 

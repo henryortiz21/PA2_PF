@@ -43,7 +43,8 @@ public class ControlSiembrasAddView extends Div {
         DatosComboBox();
 
         cmbCodigo.addValueChangeListener(e->{
-            tipo_siembra.setValue(cmbCodigo.getValue().getTiposiembra());
+            if (e.getValue()!= null)
+                tipo_siembra.setValue(cmbCodigo.getValue().getTiposiembra());
         });
 
         bGuardar.addClickListener(e -> {
