@@ -32,6 +32,7 @@ public class ListaSemillasView extends Div {
 	private Integer ID = 0;
 	private Grid<Semilla> grid = new Grid<>(Semilla.class, false);
 	private List<Semilla> lista_semillas = new ArrayList<>();
+	private Semilla item;
 	private BaseDatosInteractor interactor;
 
 	private Button bNuevo = new Button("Nueva semilla", new Icon(VaadinIcon.PLUS_CIRCLE));
@@ -58,6 +59,7 @@ public class ListaSemillasView extends Div {
 		createGridLayout(layout);
 		prinLayout.add(buttonActions(), layout);
 		eventos();
+		refreshGrid();
 	}
 
 	private void createGridLayout(VerticalLayout layout) {
@@ -97,12 +99,16 @@ public class ListaSemillasView extends Div {
 		lista_semillas = interactor.consultarSemillas();
 		if (lista_semillas == null)
 			lista_semillas = new ArrayList<>();
+	}
+
+	private void refreshGrid() {
 		grid.select(null);
 		grid.getDataProvider().refreshAll();
 	}
 
 	private void eventos() {
 		grid.asSingleSelect().addValueChangeListener(e -> {
+			item=e.getValue();
 			if (e.getValue() != null) {
 				ID = e.getValue().getId();
 				bEliminar.setEnabled(true);
@@ -120,9 +126,11 @@ public class ListaSemillasView extends Div {
 
 		bEliminar.addClickListener(e -> {
 			String r = interactor.eliminarSemilla(ID);
-			if (r != null)
+			if (r != null){
 				new Notificaciones("Semilla eliminada satisfactoriamente", 2, 7);
-			else
+				lista_semillas.remove(item);
+				refreshGrid();
+			}else
 				new Notificaciones("No se pudo eliminar la semilla seleccionada", 1, 7);
 		});
 	}

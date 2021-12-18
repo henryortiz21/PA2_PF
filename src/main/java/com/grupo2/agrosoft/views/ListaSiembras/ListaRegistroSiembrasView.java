@@ -32,6 +32,7 @@ public class ListaRegistroSiembrasView extends Div {
 	private Integer ID = 0;
 	private Grid<RegistroSiembras> grid = new Grid<>(RegistroSiembras.class, false);
 	private List<RegistroSiembras> lista_Siembras = new ArrayList<>();
+	private RegistroSiembras item;
 	private BaseDatosInteractor interactor;
 
 	private Button bNuevo = new Button("Nuevo Registro Siembra", new Icon(VaadinIcon.PLUS_CIRCLE));
@@ -58,6 +59,7 @@ public class ListaRegistroSiembrasView extends Div {
 		createGridLayout(layout);
 		prinLayout.add(buttonActions(), layout);
 		eventos();
+		refreshGrid();
 	}
 
 	private void createGridLayout(VerticalLayout layout) {
@@ -106,12 +108,16 @@ public class ListaRegistroSiembrasView extends Div {
 		lista_Siembras = interactor.consultarRegistroSiembras();
 		if (lista_Siembras == null)
 			lista_Siembras = new ArrayList<>();
+	}
+
+	private void refreshGrid() {
 		grid.select(null);
 		grid.getDataProvider().refreshAll();
 	}
 
 	private void eventos() {
 		grid.asSingleSelect().addValueChangeListener(e -> {
+			item=e.getValue();
 			if (e.getValue() != null) {
 				ID = e.getValue().getId();
 				bEliminar.setEnabled(true);
@@ -129,9 +135,11 @@ public class ListaRegistroSiembrasView extends Div {
 
 		bEliminar.addClickListener(e -> {
 			String r = interactor.eliminarRegistroSiembras(ID);
-			if (r != null)
+			if (r != null){
 				new Notificaciones("Registro Siembra eliminado satisfactoriamente", 2, 7);
-			else
+				lista_Siembras.remove(item);
+				refreshGrid();
+			}else
 				new Notificaciones("No se pudo eliminar la semilla seleccionada", 1, 7);
 		});
 	}

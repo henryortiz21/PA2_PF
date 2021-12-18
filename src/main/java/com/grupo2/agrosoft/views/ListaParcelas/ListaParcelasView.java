@@ -32,6 +32,7 @@ public class ListaParcelasView extends Div {
 	private Integer ID = 0;
 	private Grid<Parcelas> grid = new Grid<>(Parcelas.class, false);
 	private List<Parcelas> lista_parcelas = new ArrayList<>();
+	private Parcelas item = new Parcelas();
 	private BaseDatosInteractor interactor;
 
 	private Button bNuevo = new Button("Nueva parcela", new Icon(VaadinIcon.PLUS_CIRCLE));
@@ -58,6 +59,7 @@ public class ListaParcelasView extends Div {
 		createGridLayout(layout);
 		prinLayout.add(buttonActions(), layout);
 		eventos();
+		refreshGrid();
 	}
 
 	private void createGridLayout(VerticalLayout layout) {
@@ -82,6 +84,7 @@ public class ListaParcelasView extends Div {
 		grid.addColumn("dimension_met2").setAutoWidth(true).setHeader("Dimensiones m²");
 		grid.addColumn("estatus").setAutoWidth(true).setHeader("Estado");
 		grid.setDataProvider(new ListDataProvider<>(lista_parcelas));
+		// lista_parcelas.remove(new Parcelas());
 	}
 
 	private Component buttonActions() {
@@ -101,12 +104,16 @@ public class ListaParcelasView extends Div {
 		lista_parcelas = interactor.consultarParcelas();
 		if (lista_parcelas == null)
 			lista_parcelas = new ArrayList<>();
+	}
+
+	private void refreshGrid() {
 		grid.select(null);
 		grid.getDataProvider().refreshAll();
 	}
 
 	private void eventos() {
 		grid.asSingleSelect().addValueChangeListener(e -> {
+			item=e.getValue();
 			if (e.getValue() != null) {
 				ID = e.getValue().getId();
 				bEliminar.setEnabled(true);
@@ -124,10 +131,11 @@ public class ListaParcelasView extends Div {
 
 		bEliminar.addClickListener(e -> {
 			String r = interactor.eliminarParcelas(ID);
-			if (r != null){
+			if (r != null) {
 				new Notificaciones("Parcela eliminada satisfactoriamente", 2, 7);
-				cargar_datos();
-			}else
+				lista_parcelas.remove(item);
+				refreshGrid();
+			} else
 				new Notificaciones("No se pudo eliminar la parcela seleccionada", 1, 7);
 		});
 	}

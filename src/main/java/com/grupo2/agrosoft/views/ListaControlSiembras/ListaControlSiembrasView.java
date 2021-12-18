@@ -32,6 +32,7 @@ public class ListaControlSiembrasView extends Div {
 	private Integer ID = 0;
 	private Grid<ControlSiembra> grid = new Grid<>(ControlSiembra.class, false);
 	private List<ControlSiembra> controlSiembras = new ArrayList<>();
+	private ControlSiembra item;
 	private BaseDatosInteractor interactor;
 
 	private Button bNuevo = new Button("Nuevo Control Siembra", new Icon(VaadinIcon.PLUS_CIRCLE));
@@ -58,6 +59,7 @@ public class ListaControlSiembrasView extends Div {
 		createGridLayout(layout);
 		prinLayout.add(buttonActions(), layout);
 		eventos();
+		refreshGrid();
 	}
 
 	private void createGridLayout(VerticalLayout layout) {
@@ -101,12 +103,16 @@ public class ListaControlSiembrasView extends Div {
 		controlSiembras = interactor.consultarControlSiembras();
 		if (controlSiembras == null)
 			controlSiembras = new ArrayList<>();
+	}
+
+	private void refreshGrid() {
 		grid.select(null);
 		grid.getDataProvider().refreshAll();
 	}
 
 	private void eventos() {
 		grid.asSingleSelect().addValueChangeListener(e -> {
+			item=e.getValue();
 			if (e.getValue() != null) {
 				ID = e.getValue().getId();
 				bEliminar.setEnabled(true);
@@ -124,9 +130,11 @@ public class ListaControlSiembrasView extends Div {
 
 		bEliminar.addClickListener(e -> {
 			String r = interactor.eliminarControlSiembras(ID);
-			if (r != null)
+			if (r != null){
 				new Notificaciones("Control Siembra eliminado satisfactoriamente", 2, 7);
-			else
+				controlSiembras.remove(item);
+				refreshGrid();
+			}else
 				new Notificaciones("No se pudo eliminar el Control Siembra seleccionada", 1, 7);
 		});
 	}
